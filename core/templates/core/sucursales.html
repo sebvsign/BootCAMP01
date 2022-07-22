@@ -31,69 +31,31 @@
         </div>
       </div>
       <!-- End -->
-  
+      
       <div class="row">
+        {% for s in sucursales %}
         <!-- Gallery item -->
         <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="{% static 'core/img/sucursal-01.jpg' %}" alt="" class="img-fluid card-img-top">
+
+          <div class="bg-white rounded shadow-sm">
+            {% if s.imagen %}
+            <img src="{{ s.imagen.url }}" alt="" class="img-fluid card-img-top">
+            {% endif%}
             <div class="p-4">
-              <h5> <a href="#" class="text-dark">LA FLORIDA</a></h5>
-              <p class="small text-muted mb-0">Marcas: Mitsubishi,Suzuki, KIA</p>
+              <h5> <a href="#" class="text-dark">{{ s.comuna}}</a></h5>
               <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="bi bi-map"></i></i><span class="font-weight-bold">Vicente valdes #1102</span></p>
+                <p class="small mb-0"><i class="bi bi-map"></i></i><span class="font-weight-bold">{{ s.direccion }}</span></p>
                 <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
               </div>
             </div>
           </div>
         </div>
-        <!-- End -->
-  
-        <!-- Gallery item -->
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="{% static 'core/img/sucursal-02.jpg' %}" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">ÑUÑOA</a></h5>
-              <p class="small text-muted mb-0">Marcas: Mitsubishi,Suzuki, KIA, CHERRY</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Irarrazabal #3601</span></p>
-                <div class="badge badge-primary px-3 rounded-pill font-weight-normal">Trend</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-  
-        <!-- Gallery item -->
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="{% static 'core/img/sucursal-03.jpg' %}" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">LAS CONDES</a></h5>
-              <p class="small text-muted mb-0">Marcas: Porche, Tesla</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Alonso de Córdova #2901 </span></p>
-                <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-  
-        <!-- Gallery item -->
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="{% static 'core/img/sucursal-04.jpg' %}" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">PUENTE ALTO</a></h5>
-              <p class="small text-muted mb-0">Marcas: Mitsubishi,Suzuki, KIA, CHERRY, Mercedez</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Av. Concha y Toro #4033 </span></p>
-                <div class="badge badge-success px-3 rounded-pill font-weight-normal">Hot</div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        {% endfor %}
         <!-- End -->
   
       </div>
+      
       <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
     </div>
   </div>

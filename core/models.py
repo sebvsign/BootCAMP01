@@ -1,4 +1,5 @@
 
+from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
@@ -9,10 +10,12 @@ class Sucursal(models.Model):
     region = models.CharField(max_length=100, verbose_name='region')
     comuna = models.CharField(max_length=100, verbose_name='comuna')
     direccion = models.CharField(max_length=100, verbose_name='direccion')
+    imagen = models.ImageField(upload_to = "sucursales", null= True)
+
     ###
 
     def __str__(self):
-        return self.idSucursal
+        return self.comuna
 
 # Create your models here.
 class Clientes(models.Model):
@@ -29,9 +32,9 @@ class Vehiculo(models.Model):
     modelo= models.CharField(max_length=20,null=True,blank=True,verbose_name='Modelo')
     color=models.CharField(max_length=20,verbose_name='Color vehiculo')
     sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
-
+    imagen = models.ImageField(upload_to = "vehiculos", null= True)
     def __str__(self) :
-        return self.idVehiculo
+        return self.patente
 
 
 class Vendedores(models.Model):
